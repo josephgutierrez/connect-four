@@ -1,0 +1,28 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+#board {
+  background-color: #2377ff;
+  border-radius: 3.2em;
+  display: inline-block;
+  left: 50%;
+  margin-top: 5em;
+  min-width: 33.60563em;
+  overflow: none;
+  padding: 0.8em;
+  position: absolute;
+  transform: translateX(-50%); }
+
+.cell {
+  background-color: #ced5e0;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  margin: 0.4em;
+  border-radius: 50%; }
+
+/*# sourceMappingURL=default.css.map */
