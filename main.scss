@@ -1,0 +1,45 @@
+$large-cell: 6.25em;
+$main-blue: #2377ff;
+$main-gray: #ced5e0;
+$main-red: #ff3f3f;
+$main-yellow: #fffb71;
+$medium-cell: 5em;
+$small-cell: 4em;
+$small-board: 33.605625em;
+$small-margin: $small-cell/10;
+$small-padding: $small-cell/5;
+$small-radius: $small-cell/1.25;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#board {
+  background-color: $main-blue;
+  border-radius: $small-radius;
+  display: inline-block;
+  left: 50%;
+  margin-top: 5em;
+  min-width: $small-board;
+  overflow: none;
+  padding: $small-padding;
+  position: absolute;
+  transform: translateX(-50%);
+}
+.cell {
+  background-color: $main-gray;
+  display: inline-block;
+  width: $small-cell;
+  height: $small-cell;
+  margin: $small-margin;
+  border-radius: 50%;
+}
+.cell.yellow {
+  background-color: $main-yellow;
+}
+.cell.red {
+  background-color: $main-red;
+}
