@@ -25,4 +25,10 @@ body {
   margin: 0.4em;
   border-radius: 50%; }
 
+.cell.yellow {
+  background-color: #fffb71; }
+
+.cell.red {
+  background-color: #ff3f3f; }
+
 /*# sourceMappingURL=default.css.map */
