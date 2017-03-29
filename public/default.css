@@ -5,30 +5,37 @@ body {
   margin: 0;
   padding: 0; }
 
+body {
+  background: #ced5e0;
+  filter: drop-shadow(0 0.1875em 0.3125em rgba(0, 0, 0, 0.8)); }
+
 #board {
-  background-color: #2377ff;
+  background-color: #3c85fc;
   border-radius: 3.2em;
   display: inline-block;
   left: 50%;
   margin-top: 5em;
   min-width: 33.60563em;
-  overflow: none;
   padding: 0.8em;
   position: absolute;
   transform: translateX(-50%); }
 
 .cell {
-  background-color: #ced5e0;
+  background: #ced5e0;
+  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5);
   display: inline-block;
   width: 4em;
   height: 4em;
   margin: 0.4em;
-  border-radius: 50%; }
+  border-radius: 50%;
+  cursor: pointer; }
 
 .cell.yellow {
-  background-color: #fffb71; }
+  background: linear-gradient(#c9c554, #fffb71);
+  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 0.25em 0.625em rgba(255, 255, 255, 0.2); }
 
 .cell.red {
-  background-color: #ff3f3f; }
+  background: linear-gradient(#e03535, #ff3f3f);
+  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 0.25em 0.625em rgba(255, 255, 255, 0.2); }
 
 /*# sourceMappingURL=default.css.map */

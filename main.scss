@@ -1,8 +1,11 @@
+$body-drop-shadow: drop-shadow(0 .1875em .3125em rgba(0,0,0, 0.8));
+$cell-blank-box-shadow: inset 0 .25em .3125em rgba(0, 0, 0, 0.5);
+$cell-color-box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 .25em .625em rgba(255, 255, 255, 0.2);
 $large-cell: 6.25em;
-$main-blue: #2377ff;
+$main-blue: #3c85fc;
 $main-gray: #ced5e0;
-$main-red: #ff3f3f;
-$main-yellow: #fffb71;
+$main-red: linear-gradient(#e03535, #ff3f3f);
+$main-yellow: linear-gradient(#c9c554, #fffb71);
 $medium-cell: 5em;
 $small-cell: 4em;
 $small-board: 33.605625em;
@@ -17,6 +20,10 @@ body {
   margin: 0;
   padding: 0;
 }
+body {
+  background: $main-gray;
+  filter: $body-drop-shadow;
+}
 #board {
   background-color: $main-blue;
   border-radius: $small-radius;
@@ -24,22 +31,25 @@ body {
   left: 50%;
   margin-top: 5em;
   min-width: $small-board;
-  overflow: none;
   padding: $small-padding;
   position: absolute;
   transform: translateX(-50%);
 }
 .cell {
-  background-color: $main-gray;
+  background: $main-gray;
+  box-shadow: $cell-blank-box-shadow;
   display: inline-block;
   width: $small-cell;
   height: $small-cell;
   margin: $small-margin;
   border-radius: 50%;
+  cursor: pointer;
 }
 .cell.yellow {
-  background-color: $main-yellow;
+  background: $main-yellow;
+  box-shadow: $cell-color-box-shadow;
 }
 .cell.red {
-  background-color: $main-red;
+  background: $main-red;
+  box-shadow: $cell-color-box-shadow;
 }
