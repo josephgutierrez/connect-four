@@ -3,11 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Connect Four</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="default.css">
   </head>
   <body>
+    <nav id="navbar">
+      <div>Connect Four</div>
+    </nav>
+    <div>
+      <div id="status"></div>
+    </div>
     <div id="board"></div>
+    <div id="end" class="hidden">
+      <div id="end-text">Yellow won! Replay?</div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js"></script>
     <script src="../src/main.js"></script>
   </body>
 </html>
+      <!-- <div id="status">YELLOW'S TURN</div> -->

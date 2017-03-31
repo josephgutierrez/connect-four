@@ -1,7 +1,6 @@
 const initialState = {
   player: 'yellow',
   winner: false,
-  draw: false,
   board: [[0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0],
@@ -20,13 +19,20 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         player: action.player
       })
-    case 'PLAYER_WON':
+    case 'WINNER':
       return Object.assign({}, state, {
         winner: true
       })
-    case 'DRAW':
+    case 'RESET':
       return Object.assign({}, state, {
-        draw: true
+        player: 'yellow',
+        winner: 'false',
+        board: [[0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0]]
       })
     default:
       return state
@@ -35,54 +41,68 @@ const reducer = (state = initialState, action) => {
 
 let store = Redux.createStore(reducer, initialState)
 
+const gameOver = (status) => {
+  const $endText = document.querySelector('#end-text')
+  status == 'draw'
+    ? $endText.textContent = 'The game is a draw! Replay?'
+    : $endText.textContent = `${status} won the game! Replay?`
+  store.dispatch({type: 'WINNER'})
+}
+
 const winner = (row, col, color) => {
   const {board} = store.getState()
   let count = 0
   let num = color == 'Yellow' ? 1 : -1
+
   for (let i = 0; i < board[row].length; i++) {
     board[row][i] == num ? count += 1 : count = 0
     if (count == 4) {
-      console.log(`${color} got four in a row!`)
+      gameOver(color)
       break
     }
   }
   count = 0
+
   for (let i = 0; i < board.length; i++) {
     board[i][col] == num ? count += 1 : count = 0
     if (count == 4) {
-      console.log(`${color} got four in a row!`)
+      gameOver(color)
       break
     }
   }
   count = 0
+
   for (let i = 3; i >= -3; i--) {
     if (row - i > 5 || row - i < 0 || col - i > 6 || col - i < 0) {
       continue
     }
     board[row - i][col - i] == num ? count +=1 : count = 0
     if (count == 4) {
-      console.log(`${color} got diag four in a row!`)
+      gameOver(color)
       break
     }
   }
   count = 0
+
   for (let i = 3; i >= -3; i--) {
     if (row + i > 5 || row + i < 0 || col - i > 6 || col - i < 0) {
       continue
     }
     board[row + i][col - i] == num ? count +=1 : count = 0
     if (count == 4) {
-      console.log(`${color} got diag four in a row!`)
+      gameOver(color)
       break
     }
   }
   count = 0
+
   for (let i = 0; i < board.length; i++) {
     if (board[i].includes(0)) {
       count += 1
     }
     if (count == 0) {
-      console.log('The game is a draw!')
+      gameOver('draw')
+      break
     }
   }
 }
@@ -110,9 +130,17 @@ const dropChip = (col) => {
 }
 
 const renderGame = () => {
+  const {board, player, winner} = store.getState()
   const $board = document.querySelector('#board')
   $board.innerHTML = ''
-  const {board} = store.getState()
+  const $status = document.querySelector('#status')
+  $status.textContent = `${player}'s turn`
+  $status.style.boxShadow = player == 'yellow'
+                              ? '0 .25em .3125em rgba(245, 255, 58, .7)'
+                              : '0 .25em .3125em rgba(255, 63, 63, 0.5)'
+
+  const $end = document.querySelector('#end')
+  winner == true ? $end.classList.remove('hidden') : $end.classList.add('hidden')
 
   for (let i = 0; i < board.length; i++) {
     const $row = document.createElement('div')
@@ -145,4 +173,8 @@ document.addEventListener('click', (event) => {
     const $column = event.target.dataset.column
     dropChip($column)
   }
+})
+const $restart = document.querySelector('#end-text')
+$restart.addEventListener('click', () => {
+  store.dispatch({type: 'RESET'})
 })

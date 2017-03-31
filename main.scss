@@ -1,14 +1,19 @@
 $body-drop-shadow: drop-shadow(0 .1875em .3125em rgba(0,0,0, 0.8));
 $cell-blank-box-shadow: inset 0 .25em .3125em rgba(0, 0, 0, 0.5);
+$status-box-shadow: 0 .25em .3125em rgba(0, 0, 0, 0.5);
 $cell-color-box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 .25em .625em rgba(255, 255, 255, 0.2);
+$end-background: rgba(0,0,0,.4);
 $large-cell: 6.25em;
 $main-blue: #3c85fc;
 $main-gray: #ced5e0;
+$main-font: 'Open Sans', sans-serif;
 $main-red: linear-gradient(#e03535, #ff3f3f);
 $main-yellow: linear-gradient(#c9c554, #fffb71);
 $medium-cell: 5em;
+$nav-font: 'Lobster', cursive;
 $small-cell: 4em;
 $small-board: 33.605625em;
+$small-font: 1.5em;
 $small-margin: $small-cell/10;
 $small-padding: $small-cell/5;
 $small-radius: $small-cell/1.25;
@@ -22,18 +27,44 @@ body {
 }
 body {
   background: $main-gray;
+  text-align: center;
+}
+#navbar {
+  position: relative;
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 50px;
+  font-family: 'Lobster', cursive;
   filter: $body-drop-shadow;
+}
+#navbar > div {
+  position: absolute;
+  font-size: 2em;
+  color: #1c1c1c;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#status {
+  display: inline-block;
+  width: 165px;
+  background-color: #f7f7f7;
+  font-size: 1.7em;
+  font-family: 'Lobster', cursive;
+  color: #2d2d2d;
+  padding: 10px;
+  margin-top: 2em;
+  border-radius: $small-radius;
+  box-shadow: $status-box-shadow;
 }
 #board {
   background-color: $main-blue;
   border-radius: $small-radius;
   display: inline-block;
-  left: 50%;
-  margin-top: 5em;
+  margin-top: 4em;
   min-width: $small-board;
   padding: $small-padding;
-  position: absolute;
-  transform: translateX(-50%);
+  filter: $body-drop-shadow;
 }
 .cell {
   background: $main-gray;
@@ -52,4 +83,25 @@ body {
 .cell.red {
   background: $main-red;
   box-shadow: $cell-color-box-shadow;
+}
+#end {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $end-background;
+}
+#end-text {
+  background-color: #f7f7f7;
+  border-radius: $small-radius;
+  display: inline-block;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+  padding: 15px;
+  margin-top: 100px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
 }
