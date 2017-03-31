@@ -1,19 +1,31 @@
-$body-drop-shadow: drop-shadow(0 .1875em .3125em rgba(0,0,0, 0.8));
+$board-drop-shadow: drop-shadow(0 .1875em .3125em rgba(0,0,0, 0.8));
 $cell-blank-box-shadow: inset 0 .25em .3125em rgba(0, 0, 0, 0.5);
-$status-box-shadow: 0 .25em .3125em rgba(0, 0, 0, 0.5);
 $cell-color-box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 .25em .625em rgba(255, 255, 255, 0.2);
 $end-background: rgba(0,0,0,.4);
-$large-cell: 6.25em;
 $main-blue: #3c85fc;
 $main-gray: #ced5e0;
-$main-font: 'Open Sans', sans-serif;
 $main-red: linear-gradient(#e03535, #ff3f3f);
 $main-yellow: linear-gradient(#c9c554, #fffb71);
+$main-font-family: 'Lobster', cursive;
+$main-font-size: 2.25em;
+$min-board-size: 33.605625em;
+$nav-box-shadow: 0 .25em .3125em rgba(0, 0, 0, 0.3);
+$status-font: 1.7em;
+
+$large-cell: 5.4em;
+$large-end: 23.2em;
+$large-margin: $large-cell/10;
+$large-padding: $large-cell/5;
+$large-radius: $large-cell/1.25;
+
 $medium-cell: 5em;
-$nav-font: 'Lobster', cursive;
+$medium-end: 21.7em;
+$medium-margin: $medium-cell/10;
+$medium-padding: $medium-cell/5;
+$medium-radius: $medium-cell/1.25;
+
 $small-cell: 4em;
-$small-board: 33.605625em;
-$small-font: 1.5em;
+$small-end: 18.2em;
 $small-margin: $small-cell/10;
 $small-padding: $small-cell/5;
 $small-radius: $small-cell/1.25;
@@ -28,18 +40,19 @@ body {
 body {
   background: $main-gray;
   text-align: center;
+  min-width: 650px;
 }
 #navbar {
   position: relative;
   background-color: #f7f7f7;
   width: 100%;
-  height: 50px;
-  font-family: 'Lobster', cursive;
-  filter: $body-drop-shadow;
+  height: 3.5em;
+  font-family: $main-font-family;
+  box-shadow: $nav-box-shadow;
 }
 #navbar > div {
   position: absolute;
-  font-size: 2em;
+  font-size: $main-font-size;
   color: #1c1c1c;
   top: 50%;
   left: 50%;
@@ -49,27 +62,26 @@ body {
   display: inline-block;
   width: 165px;
   background-color: #f7f7f7;
-  font-size: 1.7em;
-  font-family: 'Lobster', cursive;
+  font-size: $status-font;
+  font-family: $main-font-family;
   color: #2d2d2d;
   padding: 10px;
-  margin-top: 2em;
+  margin-top: 1.5em;
   border-radius: $small-radius;
-  box-shadow: $status-box-shadow;
 }
 #board {
+  display: inline-block;
   background-color: $main-blue;
   border-radius: $small-radius;
-  display: inline-block;
-  margin-top: 4em;
-  min-width: $small-board;
+  margin-top: 3.5em;
+  min-width: $min-board-size;
   padding: $small-padding;
-  filter: $body-drop-shadow;
+  filter: $board-drop-shadow;
 }
 .cell {
+  display: inline-block;
   background: $main-gray;
   box-shadow: $cell-blank-box-shadow;
-  display: inline-block;
   width: $small-cell;
   height: $small-cell;
   margin: $small-margin;
@@ -90,18 +102,53 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  min-width: 650px;
   background: $end-background;
 }
 #end-text {
+  position: absolute;
+  top: $small-end;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #f7f7f7;
+  min-width: 500px;
   border-radius: $small-radius;
   display: inline-block;
-  font-family: 'Lobster', cursive;
-  font-size: 40px;
+  font-family: $main-font-family;
+  font-size: $main-font-size;
   padding: 15px;
-  margin-top: 100px;
   cursor: pointer;
 }
 .hidden {
   display: none;
+}
+
+@media screen and (min-width: 960px) {
+  .cell {
+    width: $medium-cell;
+    height: $medium-cell;
+    margin: $medium-margin;
+  }
+  #board {
+    border-radius: $medium-radius;
+    padding: $medium-padding;
+  }
+  #end-text {
+    top: $medium-end;
+  }
+}
+
+@media screen and (min-width: 1268px) {
+  .cell {
+    width: $large-cell;
+    height: $large-cell;
+    margin: $large-margin;
+  }
+  #board {
+    border-radius: $large-radius;
+    padding: $large-padding;
+  }
+  #end-text {
+    top: $large-end;
+  }
 }
