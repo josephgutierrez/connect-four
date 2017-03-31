@@ -5,7 +5,7 @@ The classic two player game.
 Try to get four in a row to win. Four in a row can be vertical, horizontal, or diagonal. If the board is filled without a winner, it is a draw.
 
 
-![](http://g.recordit.co/ROyOGkoSar.gif)
+![](http://g.recordit.co/pcSoHfzvGn.gif)
 
 ## Implementation
 - Sass
