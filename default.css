@@ -75,7 +75,7 @@ body {
 
 #end-text {
   position: absolute;
-  top: 18.2em;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #f7f7f7;
@@ -99,9 +99,7 @@ body {
   #board {
     border-radius: 4em;
     padding: 1em; }
-
-  #end-text {
-    top: 21.7em; } }
+ }
 @media screen and (min-width: 1268px) {
   .cell {
     width: 5.4em;
@@ -111,8 +109,6 @@ body {
   #board {
     border-radius: 4.32em;
     padding: 1.08em; }
-
-  #end-text {
-    top: 23.2em; } }
+ }
 
 /*# sourceMappingURL=default.css.map */
