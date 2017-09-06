@@ -3,12 +3,14 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0; 
+}
 
 body {
   background: #ced5e0;
   text-align: center;
-  min-width: 650px; }
+  min-width: 650px; 
+}
 
 #navbar {
   position: relative;
@@ -16,7 +18,8 @@ body {
   width: 100%;
   height: 3.5em;
   font-family: "Lobster", cursive;
-  box-shadow: 0 0.25em 0.3125em rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 0.25em 0.3125em rgba(0, 0, 0, 0.3); 
+}
 
 #navbar > div {
   position: absolute;
@@ -24,7 +27,8 @@ body {
   color: #1c1c1c;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%); 
+}
 
 #status {
   display: inline-block;
@@ -33,18 +37,20 @@ body {
   font-size: 1.7em;
   font-family: "Lobster", cursive;
   color: #2d2d2d;
-  padding: 10px;
-  margin-top: 1.5em;
-  border-radius: 3.2em; }
+  padding: .3em;
+  margin-top: .7em;
+  border-radius: 3.2em; 
+}
 
 #board {
   display: inline-block;
   background-color: #3c85fc;
   border-radius: 3.2em;
-  margin-top: 3.5em;
+  margin-top: 1.5em;
   min-width: 33.60563em;
   padding: 0.8em;
-  filter: drop-shadow(0 0.1875em 0.3125em rgba(0, 0, 0, 0.8)); }
+  filter: drop-shadow(0 0.1875em 0.3125em rgba(0, 0, 0, 0.8)); 
+}
 
 .cell {
   display: inline-block;
@@ -54,15 +60,18 @@ body {
   height: 4em;
   margin: 0.4em;
   border-radius: 50%;
-  cursor: pointer; }
+  cursor: pointer; 
+}
 
 .cell.yellow {
   background: linear-gradient(#c9c554, #fffb71);
-  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 0.25em 0.625em rgba(255, 255, 255, 0.2); }
+  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 0.25em 0.625em rgba(255, 255, 255, 0.2); 
+}
 
 .cell.red {
   background: linear-gradient(#e03535, #ff3f3f);
-  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 0.25em 0.625em rgba(255, 255, 255, 0.2); }
+  box-shadow: inset 0 0.25em 0.3125em rgba(0, 0, 0, 0.5), 0 0.25em 0.625em rgba(255, 255, 255, 0.2); 
+}
 
 #end {
   position: fixed;
@@ -71,7 +80,8 @@ body {
   width: 100%;
   height: 100%;
   min-width: 650px;
-  background: rgba(0, 0, 0, 0.4); }
+  background: rgba(0, 0, 0, 0.4); 
+}
 
 #end-text {
   position: absolute;
@@ -85,7 +95,8 @@ body {
   font-family: "Lobster", cursive;
   font-size: 2.25em;
   padding: 15px;
-  cursor: pointer; }
+  cursor: pointer; 
+}
 
 .hidden {
   display: none; }
