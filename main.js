@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
     case 'RESET':
       return Object.assign({}, state, {
         player: 'yellow',
-        winner: 'false',
+        winner: false,
         board: [[0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0],
@@ -140,7 +140,14 @@ const renderGame = () => {
     : '0 .25em .3125em rgba(255, 63, 63, 0.5)'
 
   const $end = document.querySelector('#end')
-  winner == true ? $end.classList.remove('hidden') : $end.classList.add('hidden')
+
+  if (winner) {
+    $status.classList.add('hidden')
+    $end.classList.remove('hidden')
+  } else {
+    $status.classList.remove('hidden')
+    $end.classList.add('hidden')
+  }
 
   for (let i = 0; i < board.length; i++) {
     const $row = document.createElement('div')
